@@ -37,11 +37,13 @@ RUN cd /tmp/ && \
     dpkg -i /tmp/rundeck*.deb && rm /tmp/rundeck*.deb && \
     apt-get clean && rm -rf /var/lib/apt/lists
 
+RUN mkdir -p /var/lib/rundeck/libext && \
+    curl -Lo /var/lib/rundeck/libext/ansible-plugin.jar ${rundeck_ansible_plugin_url}
+
 RUN chown rundeck:rundeck /tmp/rundeck && \
     mkdir -p /var/lib/rundeck/.ssh && \
     chown rundeck:rundeck /var/lib/rundeck/.ssh && \
-    sed -i "s/export RDECK_JVM=\"/export RDECK_JVM=\"\${RDECK_JVM} /" /etc/rundeck/profile && \
-    curl -Lo /var/lib/rundeck/libext/ansible-plugin.jar ${rundeck_ansible_plugin_url}
+    sed -i "s/export RDECK_JVM=\"/export RDECK_JVM=\"\${RDECK_JVM} /" /etc/rundeck/profile
  
 ADD content/ /
 RUN chmod u+x /opt/run && \
