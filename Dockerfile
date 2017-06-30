@@ -16,7 +16,7 @@ RUN apt-get -qq update && \
         bash default-jre supervisor procps sudo \
         ca-certificates openssh-client mysql-server mysql-client \
         pwgen build-essential curl git \
-        libffi-dev libssl-dev python-dev python-pip
+        libffi-dev libssl-dev python-dev python-pip uuid-runtime
 
 RUN pip install --upgrade distribute && \
     pip install --upgrade cffi && \
