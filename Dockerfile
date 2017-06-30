@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu:16.04
 
 ARG rundeck_url="http://dl.bintray.com/rundeck/rundeck-deb/rundeck-2.8.2-1-GA.deb"
 ARG rundeck_sha256sum="739ee8230a5da973c95a540391d021bc48f2cf77a17f68b7310ca4ff7aac9b17"
@@ -11,12 +11,11 @@ ENV RUNDECK_STORAGE_PROVIDER file
 ENV RUNDECK_PROJECT_STORAGE_TYPE file
 ENV NO_LOCAL_MYSQL false
 
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
-    apt-get -qq update && \
+RUN apt-get -qq update && \
     apt-get -qq upgrade && \
     apt-get -qq dist-upgrade && \
-    apt-get -qqy install --no-install-recommends \
-        bash openjdk-8-jre supervisor procps sudo \
+    apt-get -qqy install \
+        bash default-jre supervisor procps sudo \
         ca-certificates openssh-client mysql-server mysql-client \
         pwgen build-essential curl git \
         libffi-dev libssl-dev python-dev python-pip uuid-runtime
