@@ -17,7 +17,7 @@ RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/so
         bash openjdk-8-jre supervisor procps sudo \
         ca-certificates openssh-client mysql-server mysql-client \
         pwgen build-essential curl git \
-        libffi-dev libssl-dev python-dev python-pip
+        libffi-dev libssl-dev python-dev python-pip uuid-runtime
 
 RUN pip install --upgrade distribute && \
     pip install --upgrade cffi && \
