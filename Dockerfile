@@ -13,7 +13,7 @@ ENV NO_LOCAL_MYSQL false
 
 RUN apt-get -qq update && \
     apt-get -qqy install --no-install-recommends \
-        bash openjdk-8-jre-headless supervisor procps sudo \
+        bash default-jre supervisor procps sudo \
         ca-certificates openssh-client mysql-server mysql-client \
         pwgen build-essential curl git \
         libffi-dev libssl-dev python-dev python-pip
