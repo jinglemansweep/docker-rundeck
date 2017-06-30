@@ -1,7 +1,7 @@
 FROM debian:jessie
 
-ARG rundeck_url="http://dl.bintray.com/rundeck/rundeck-deb/rundeck-2.7.1-1-GA.deb"
-ARG rundeck_sha256sum="57986749f7496cf201cb89ebd44fe0859d86062f0783d9e653344d4894ba0559"
+ARG rundeck_url="http://dl.bintray.com/rundeck/rundeck-deb/rundeck-2.8.2-1-GA.deb"
+ARG rundeck_sha256sum="739ee8230a5da973c95a540391d021bc48f2cf77a17f68b7310ca4ff7aac9b17"
 ARG rundeck_cli_url="https://github.com/rundeck/rundeck-cli/releases/download/v1.0.0-alpha/rundeck-cli_1.0.0.SNAPSHOT-1_all.deb"
 ARG rundeck_cli_sha256sum="890ae85e0acdf703fa336bfc73a7129ce618794833d5744ddae901a1b2e38074"
 
