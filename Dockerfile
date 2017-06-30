@@ -11,12 +11,13 @@ ENV RUNDECK_STORAGE_PROVIDER file
 ENV RUNDECK_PROJECT_STORAGE_TYPE file
 ENV NO_LOCAL_MYSQL false
 
-RUN apt-get -qq update && \
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list && \
+    apt-get -qq update && \
     apt-get -qqy install --no-install-recommends \
-        bash default-jre supervisor procps sudo \
+        bash openjdk-8-jre supervisor procps sudo \
         ca-certificates openssh-client mysql-server mysql-client \
         pwgen build-essential curl git \
-        libffi-dev libssl-dev python-dev python-pip uuid-runtime
+        libffi-dev libssl-dev python-dev python-pip
 
 RUN pip install --upgrade distribute && \
     pip install --upgrade cffi && \
